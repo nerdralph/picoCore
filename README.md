@@ -9,7 +9,7 @@ Only those parts of the Arduino/Wiring API which can be implmented efficiently w
 
 digitalRead, digitalWrite, pinMode - implemented in v0.1
 
-delay - implemented in v0.1 using _delay_ms
+delay, delayMicroseconds - implemented in v0.1 using avr-gcc builtin _delay functions.
 
 v0.2 goals: analogRead and analogWrite
 
