@@ -13,13 +13,14 @@ version=0.1.0
 # ---------------------
 
 # need to build core for each sketch to use custom pcrt.S
-compiler.cache_core=false
+#compiler.cache_core=false
 
 compiler.warning_flags=-w
 compiler.warning_flags.none=-w
 compiler.warning_flags.default=
 compiler.warning_flags.more=-Wall
 compiler.warning_flags.all=-Wall -Wextra
+#compiler.warning_flags.all=-Wall -Wextra -fno-move-loop-invariants -fno-reorder-blocks
 
 # Default "compiler.path" is correct, change only if you want to override the initial value
 compiler.path={runtime.tools.avr-gcc.path}/bin/
@@ -44,7 +45,8 @@ build.extra_flags=
 
 # These can be overridden in platform.local.txt
 compiler.c.extra_flags=
-compiler.c.elf.extra_flags=-nostartfiles
+# force linker to search for __vectors (in pcrt)
+compiler.c.elf.extra_flags=-nostartfiles -Wl,--undefined=__vectors
 compiler.S.extra_flags=
 compiler.cpp.extra_flags=
 compiler.ar.extra_flags=
@@ -70,7 +72,7 @@ recipe.ar.pattern="{compiler.path}{compiler.ar.cmd}" {compiler.ar.flags} {compil
 
 ## Combine gc-sections, archives, and objects
 #recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {compiler.c.elf.flags} -mmcu={build.mcu} {compiler.c.elf.extra_flags} -o "{build.path}/{build.project_name}.elf" {object_files} "{build.path}/{archive_file}" "-L{build.path}" -lm
-recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {compiler.c.elf.flags} -mmcu={build.mcu} {compiler.c.elf.extra_flags} -o "{build.path}/{build.project_name}.elf" {build.path}/core/pcrt.S.o {object_files} "{build.path}/{archive_file}" "-L{build.path}" -lm
+recipe.c.combine.pattern="{compiler.path}{compiler.c.elf.cmd}" {compiler.c.elf.flags} -mmcu={build.mcu} {compiler.c.elf.extra_flags} -o "{build.path}/{build.project_name}.elf" {object_files} "{build.path}/{archive_file}" "-L{build.path}" -lm
 
 ## Create output files (.eep and .hex)
 recipe.objcopy.eep.pattern="{compiler.path}{compiler.objcopy.cmd}" {compiler.objcopy.eep.flags} {compiler.objcopy.eep.extra_flags} "{build.path}/{build.project_name}.elf" "{build.path}/{build.project_name}.eep"
