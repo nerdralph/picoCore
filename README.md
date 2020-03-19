@@ -1,5 +1,5 @@
 # picoCore
-Small Arduino/Wiring core for 8-bit tiny AVRs: ATtiny13 and ATtiny25-85 series.  Arduino Blink sketch compiled for the ATtiny13 takes 70 bytes.
+Small Arduino/Wiring core for 8-bit tiny AVRs: ATtiny13 and ATtiny25-85 series.  Arduino Blink sketch compiled for the ATtiny13 is 54 bytes.
 
 Work in progress as of March 2020
 
