@@ -30,9 +30,11 @@ extern inline void delayMicroseconds(uint16_t us)
     _delay_us(us);
 }
 
+extern void delay_16ms(uint16_t count);
+
 extern inline void delay(uint16_t ms)
 {
-    _delay_ms(ms);
+    delay_16ms(ms/16);
     //while (ms--) while (bit_is_set(ADCSRA, ADSC));
 }
 

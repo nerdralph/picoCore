@@ -49,7 +49,7 @@ __init:
     .section .init2
     clr r1
 
-; could main go in init9 to save rjmp?
     .section .init9
-;    .global main
-    rjmp main
+; main must go in .init9 to save rjmp
+;    rjmp main
+

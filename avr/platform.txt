@@ -19,8 +19,8 @@ compiler.warning_flags=-w
 compiler.warning_flags.none=-w
 compiler.warning_flags.default=
 compiler.warning_flags.more=-Wall
-compiler.warning_flags.all=-Wall -Wextra
-#compiler.warning_flags.all=-Wall -Wextra -fno-move-loop-invariants -fno-reorder-blocks
+#compiler.warning_flags.all=-Wall -Wextra
+compiler.warning_flags.all=-Wall -Wextra -fno-move-loop-invariants -fno-reorder-blocks
 
 # Default "compiler.path" is correct, change only if you want to override the initial value
 compiler.path={runtime.tools.avr-gcc.path}/bin/
@@ -46,7 +46,7 @@ build.extra_flags=
 # These can be overridden in platform.local.txt
 compiler.c.extra_flags=
 # force linker to search for __vectors (in pcrt)
-compiler.c.elf.extra_flags=-nostartfiles -Wl,--undefined=__vectors
+compiler.c.elf.extra_flags=-nostartfiles -Wl,--undefined=__vectors -Wl,--undefined=main
 compiler.S.extra_flags=
 compiler.cpp.extra_flags=
 compiler.ar.extra_flags=
