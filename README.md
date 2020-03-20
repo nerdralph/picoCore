@@ -7,7 +7,7 @@ Goals: More than 50% of Arduino sketches run unmodified with picoCore, and 80% r
 
 Only those parts of the Arduino/Wiring API which can be implmented efficiently will be supported.
 
-# Development Status
+## Development Status
 digitalRead, digitalWrite, pinMode - implemented in v0.1
 
 delay, delayMicroseconds - implemented in v0.1 using avr-gcc builtin delay functions.
