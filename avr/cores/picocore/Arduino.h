@@ -17,10 +17,10 @@ extern "C"{
 #endif
 
 // global constants
-#define LOW         0
-#define HIGH        1
-
-#define LED_BUILTIN 2
+static const uint8_t LOW = 0;
+static const uint8_t HIGH = 1;
+static const uint8_t LED_BUILTIN = 2;
+static const uint8_t NUM_DIGITAL_PINS = 6;
 
 typedef uint8_t byte;
 
@@ -31,9 +31,18 @@ uint32_t millis();
 
 void badArg(const char*) __attribute((error("")));
 
-#define ASSERT_CONST(pin)               \
-    if (!__builtin_constant_p(pin))     \
+#define ASSERT_CONST(pin) \
+    if (!__builtin_constant_p(pin)) badArg("pin must be a constant")
+
+__attribute((always_inline))
+inline void check_valid_digital_pin(uint8_t pin)
+{
+    if (__builtin_constant_p(pin)) {
+        if (pin >= NUM_DIGITAL_PINS) badArg("pin out of range");
+    } else {
         badArg("pin must be a constant");
+    }
+}
 
 extern inline void delayMicroseconds(uint16_t us)
 {
@@ -57,7 +66,8 @@ enum _pin_mode {
 
 extern inline void pinMode(uint8_t pin, _pin_mode mode)
 { 
-    ASSERT_CONST(pin);
+    check_valid_digital_pin(pin);
+
     if (mode == OUTPUT) DDRB |= (1<<pin);
     else {
         DDRB &= ~(1<<pin);
@@ -67,11 +77,7 @@ extern inline void pinMode(uint8_t pin, _pin_mode mode)
 
 extern inline void digitalWrite(uint8_t pin, uint8_t val)
 {
-    if (__builtin_constant_p(pin)) {
-        if (pin > 5) badArg("pin out of range");
-    } else {
-        badArg("pin must be a constant");
-    }
+    check_valid_digital_pin(pin);
 
     if (val)
         PORTB |= (1<<pin);
@@ -81,14 +87,17 @@ extern inline void digitalWrite(uint8_t pin, uint8_t val)
 
 extern inline uint8_t digitalRead(uint8_t pin)
 {
+    check_valid_digital_pin(pin);
+
     return (PINB & (1<<pin)) ? HIGH : LOW;
 }
 
 // PWM supported on PB0/OCOA & PB1/OC0B
 inline void analogWrite(uint8_t pin, uint8_t count)
 {
+    const int BAD_PWM_PIN = 2;
     if (__builtin_constant_p(pin)) {
-        if (pin > 1) badArg("pin out of range");
+        if (pin >= BAD_PWM_PIN) badArg("pin out of range");
     } else {
         badArg("pin must be a constant");
     }
