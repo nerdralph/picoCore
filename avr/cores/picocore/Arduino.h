@@ -29,6 +29,12 @@ void loop();
 
 uint32_t millis();
 
+void badArg(const char*) __attribute((error("")));
+
+#define ASSERT_CONST(pin)               \
+    if (!__builtin_constant_p(pin))     \
+        badArg("pin must be a constant");
+
 extern inline void delayMicroseconds(uint16_t us)
 {
     _delay_us(us);
@@ -50,7 +56,8 @@ enum _pin_mode {
 };
 
 extern inline void pinMode(uint8_t pin, _pin_mode mode)
-{
+{ 
+    ASSERT_CONST(pin);
     if (mode == OUTPUT) DDRB |= (1<<pin);
     else {
         DDRB &= ~(1<<pin);
@@ -60,6 +67,12 @@ extern inline void pinMode(uint8_t pin, _pin_mode mode)
 
 extern inline void digitalWrite(uint8_t pin, uint8_t val)
 {
+    if (__builtin_constant_p(pin)) {
+        if (pin > 5) badArg("pin out of range");
+    } else {
+        badArg("pin must be a constant");
+    }
+
     if (val)
         PORTB |= (1<<pin);
     else
@@ -70,8 +83,6 @@ extern inline uint8_t digitalRead(uint8_t pin)
 {
     return (PINB & (1<<pin)) ? HIGH : LOW;
 }
-
-void badArg(const char*) __attribute((error("")));
 
 // PWM supported on PB0/OCOA & PB1/OC0B
 inline void analogWrite(uint8_t pin, uint8_t count)
@@ -92,12 +103,12 @@ inline void analogWrite(uint8_t pin, uint8_t count)
     if (pin == 0)
     {
         TCCR0A |= FastPWM | (1 << COM0A1);
-	OCR0A = count;
+	    OCR0A = count;
     }
     else
     {
         TCCR0A |= FastPWM | (1 << COM0B1);
-	OCR0B = count;
+	    OCR0B = count;
     }
 }
 
@@ -113,7 +124,8 @@ inline void analogReference(_analog_ref ref)
 enum _analog_pin { A0 = 0, A1, A2, A3, BAD_ANALOG_PIN };
 
 // 9 instr / 18B compiled
-__attribute((noinline))
+// try extern inline instead of always_inline?
+__attribute((always_inline))
 inline int analogRead(_analog_pin pin)
 {
     if (__builtin_constant_p(pin)) {
@@ -123,7 +135,7 @@ inline int analogRead(_analog_pin pin)
     }
 
     // MUX1 & MUX0 are 2 lowest bits in ADMUX
-    ADMUX |= pin;
+    ADMUX = (ADMUX & 0xFC) | pin;
 
     // start ADC with /32 prescaler 
     ADCSRA = (1 << ADPS2) | (1 << ADPS0) | (1 << ADSC) | (1 << ADEN);
