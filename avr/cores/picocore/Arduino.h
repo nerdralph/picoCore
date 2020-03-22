@@ -24,6 +24,10 @@ static const uint8_t NUM_DIGITAL_PINS = 6;
 
 typedef uint8_t byte;
 
+
+//__attribute(( used, section(".init9") )) int main();
+__attribute(( section(".init9") )) int main();
+
 void setup();
 void loop();
 
@@ -49,7 +53,7 @@ extern inline void delayMicroseconds(uint16_t us)
     _delay_us(us);
 }
 
-extern void delay_16ms(uint16_t count);
+void delay_16ms(uint16_t count);
 
 extern inline void delay(uint16_t ms)
 {
