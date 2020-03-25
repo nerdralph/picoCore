@@ -20,7 +20,8 @@ compiler.warning_flags.all=-Wall -Wextra
 
 # keep optimization flags in one place
 # fixed registers: r4 = isr_tmp, r3:r2 = WDT counter for millis
-compiler.optimize_flags=-Os -flto -fno-move-loop-invariants -fno-reorder-blocks -ffixed-r2 -ffixed-r3 -ffixed-r4
+#compiler.optimize_flags=-Os -flto -fno-move-loop-invariants -fno-reorder-blocks -ffixed-r2 -ffixed-r3 -ffixed-r4
+compiler.optimize_flags=-Os -flto -fno-reorder-blocks -ffixed-r2 -ffixed-r3 -ffixed-r4
 
 # Default "compiler.path" is correct, change only if you want to override the initial value
 compiler.path={runtime.tools.avr-gcc.path}/bin/

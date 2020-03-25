@@ -11,16 +11,11 @@
 #include <avr/interrupt.h>
 #include <avr/pgmspace.h>
 #include <util/delay.h>
+#include "constants.h"
 
 #ifdef __cplusplus
 extern "C"{
 #endif
-
-// global constants
-static const uint8_t LOW = 0;
-static const uint8_t HIGH = 1;
-static const uint8_t LED_BUILTIN = 2;
-static const uint8_t NUM_DIGITAL_PINS = 6;
 
 typedef uint8_t byte;
 
@@ -61,12 +56,11 @@ extern inline void delay(uint16_t ms)
         delay_16ms(ms/16);
     else
         _delay_us(ms * 1000);
-    //while (ms--) while (bit_is_set(ADCSRA, ADSC));
 }
 
-enum _pin_mode {
-    INPUT = 0,  OUTPUT, INPUT_PULLUP
-};
+// todo: add check_valid_digital_pin
+void shiftOut(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t value);
+uint8_t shiftIn(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder);
 
 extern inline void pinMode(uint8_t pin, _pin_mode mode)
 { 
@@ -125,16 +119,12 @@ inline void analogWrite(uint8_t pin, uint8_t count)
     }
 }
 
-enum _analog_ref { DEFAULT = 0, INTERNAL };
-
 inline void analogReference(_analog_ref ref)
 {
     //ADMUX = (ADMUX & ~(1 << REFS0)) | (ref << REFS0);
     if (ref == DEFAULT) ADMUX &= ~(1 << REFS0);
     else ADMUX |= (1 << REFS0);
 }
-
-enum _analog_pin { A0 = 0, A1, A2, A3, BAD_ANALOG_PIN };
 
 // 9 instr / 18B compiled
 // try extern inline instead of always_inline?
