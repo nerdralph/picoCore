@@ -14,3 +14,15 @@ delay, delayMicroseconds - implemented in v0.1 using avr-gcc builtin delay funct
 v0.2 beta: analogRead/Write & millis (using WDT) implemented
 
 v0.3 goal: Serial.print
+
+## Supported Functions
+* [analogRead()](https://www.arduino.cc/en/Reference/AnalogRead)
+* [analogWrite()](https://www.arduino.cc/en/Reference/AnalogWrite)
+* [delay()](https://www.arduino.cc/en/Reference/Delay)
+* [delayMicroseconds()](https://www.arduino.cc/en/Reference/DelayMicroseconds)   *wrapper for _delay_us()*
+* [digitalRead()](https://www.arduino.cc/en/Reference/DigitalRead)
+* [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite)
+* [millis()](https://www.arduino.cc/en/Reference/Millis)   *Watchdog timer based. Will increase with steps of 16*
+* [shiftIn()](https://www.arduino.cc/en/Reference/ShiftIn)
+* [shiftOut()](https://www.arduino.cc/en/Reference/ShiftOut)
+
