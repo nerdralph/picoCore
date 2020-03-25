@@ -3,9 +3,8 @@ Small Arduino/Wiring core for 8-bit tiny AVRs: ATtiny13 and ATtiny25-85 series. 
 
 Work in progress as of March 2020
 
-Goals: More than 50% of Arduino sketches run unmodified with picoCore, and 80% run with minor tweaks.  Unlike the official AVR core, picoCore has compile-time checking of many arguments.  Calling digitalWrite(42) will cause a compile error with the message, "pin out of range". 
+I am writing this core from scratch, with code size and efficiency as the main goal.  I am making use of AVR assembler code when the code size and efficiency goals cannot be readily attained with C/C++.  Unlike the official AVR core, picoCore has compile-time checking of many arguments.  Calling digitalWrite(42) will cause a compile error with the message, "pin out of range". 
 
-Only those parts of the Arduino/Wiring API which can be implmented efficiently will be supported.
 
 ## Development Status
 digitalRead, digitalWrite, pinMode - implemented in v0.1
