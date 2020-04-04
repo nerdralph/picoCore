@@ -58,9 +58,8 @@ extern inline void delay(uint16_t ms)
         _delay_us(ms * 1000);
 }
 
-// todo: add check_valid_digital_pin
-void shiftOut(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t value);
-uint8_t shiftIn(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder);
+void shiftOut(uint8_t dataPin, uint8_t clockPin, _bitOrder bitOrder, uint8_t value);
+uint8_t shiftIn(uint8_t dataPin, uint8_t clockPin, _bitOrder bitOrder);
 
 extern inline void pinMode(uint8_t pin, _pin_mode mode)
 { 

@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <avr/io.h>
 #include <util/delay.h>
-#include "constants.h"
+#include "Arduino.h"
 
 void delay_16ms(uint16_t count)
 {
@@ -11,38 +11,42 @@ void delay_16ms(uint16_t count)
 }
 
 // shift data in after rising edge of clock, 9 cycles/bit
-uint8_t shiftIn(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder)
+uint8_t shiftIn(uint8_t dataPin, uint8_t clockPin, _bitOrder bitOrder)
 {  
     uint8_t value;
 
     if (bitOrder == MSBFIRST) value = 0x01;
     else value = 0x80;
 
-    {
+    { // do
     // use inline asm to access the carry bit (not part of C/C++)
     morebits:
-        PORTB |= 1 << clockPin;
+        //PORTB |= 1 << clockPin;
+        digitalWrite(clockPin, HIGH);
         if (bitOrder == MSBFIRST) value <<= 1;
         else value >>= 1;
 
-        if (bit_is_set(PORTB, dataPin))
+        //if (bit_is_set(PORTB, dataPin))
+        if (digialRead(dataPin))
         { 
             if (bitOrder == MSBFIRST) value |= 0x01;
             else value |= 0x80;
         }  
-        PORTB &= ~(1 << clockPin);
+        //PORTB &= ~(1 << clockPin);
+        digitalWrite(clockPin, LOW);
 
         asm goto ("brcc %l[morebits]" :::: morebits);
-    }
+    } // while (value)
 
     return value;
 }
 
-
 // clock data out, 50% duty cycle, 8 cycles/bit
 // clock line left high after shiftOut
-void shiftOut(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t value)
+void shiftOut(uint8_t dataPin, uint8_t clockPin, _bitOrder bitOrder, uint8_t value)
 {
+    check_valid_digital_pin(dataPin);
+    check_valid_digital_pin(clockPin);
     const uint8_t dataMask = 1 << dataPin;
     const uint8_t clkMask = 1 << clockPin;
     uint8_t portbits = (PORTB & ~(dataMask | clkMask));
@@ -57,7 +61,7 @@ void shiftOut(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t value
         value |= 0x80;
     }
 
-    {
+    { // do
     // use inline asm to access the carry bit (not part of C/C++)
     morebits:
         PORTB = portbits; // Clock and data pin low  
@@ -74,6 +78,6 @@ void shiftOut(uint8_t dataPin, uint8_t clockPin, uint8_t bitOrder, uint8_t value
         else value >>= 1;
         // loop until no more bits
         asm goto ("brne %l[morebits]" :: "r"(value) :: morebits);
-    }
+    } // while (value)
 }
 
