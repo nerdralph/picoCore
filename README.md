@@ -5,7 +5,7 @@ I am writing this core from scratch, with code size and efficiency as the main g
 
 
 ## Development Status
-Work in progress as of March 2020
+Work in progress as of spring 2020.
 
 Several of the most commonly used functions are implemented as of v0.2. Support for Serial.print is planned for v0.3.
 
