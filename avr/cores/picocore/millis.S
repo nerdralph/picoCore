@@ -31,7 +31,6 @@ WDT_vect:
     reti
 
 .section .init6
-    ;ldi r16, (1<<6)                     ; WD ISR EN = WDTCR bit 6
-    ldi r16, 1<<WDTIE 
+    ldi r16, (1<<6)                     ; WD ISR EN = WDTCR bit 6
     out WDTCR, r16                      ; enable WDT interrupt
     sei
