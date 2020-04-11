@@ -21,18 +21,15 @@ uint8_t shiftIn(uint8_t dataPin, uint8_t clockPin, _bitOrder bitOrder)
     { // do
     // use inline asm to access the carry bit (not part of C/C++)
     morebits:
-        //PORTB |= 1 << clockPin;
         digitalWrite(clockPin, HIGH);
         if (bitOrder == MSBFIRST) value <<= 1;
         else value >>= 1;
 
-        //if (bit_is_set(PORTB, dataPin))
-        if (digialRead(dataPin))
+        if (digitalRead(dataPin))
         { 
             if (bitOrder == MSBFIRST) value |= 0x01;
             else value |= 0x80;
         }  
-        //PORTB &= ~(1 << clockPin);
         digitalWrite(clockPin, LOW);
 
         asm goto ("brcc %l[morebits]" :::: morebits);
