@@ -14,19 +14,32 @@
 #include "constants.h"
 
 #ifdef __cplusplus
+class __FlashStringHelper;
+#define F(string_literal) (reinterpret_cast<const __FlashStringHelper *>(PSTR(string_literal)))
+
 extern "C"{
 #endif
 
 typedef uint8_t byte;
 
-
-//__attribute(( used, section(".init9") )) int main();
+// main in .init9 saves rjmp instruction
 __attribute(( section(".init9") )) int main();
 
 void setup();
 void loop();
 
 uint32_t millis();
+
+typedef volatile uint8_t* ioregptr;
+
+extern inline ioregptr portOutputRegister(unsigned addr)
+    { return (ioregptr) addr; }
+
+extern inline ioregptr portModeRegister(unsigned addr)
+    { return (ioregptr) (addr - 1); }
+
+extern inline ioregptr portInputRegister(unsigned addr)
+    { return (ioregptr) (addr - 2); }
 
 void badArg(const char*) __attribute((error("")));
 
