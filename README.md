@@ -2,6 +2,13 @@
 trying to json of github and easy installation.
 testing, 2020-05-19
 
+open Arduino IDE, File / Preference / Additional Broad manage, include the json following,  
+
+https://xiaolaba.github.io/picoCore/package_xiaolaba_picoCore_index.json  
+
+
+-----------------------------------------
+
 
 
 
