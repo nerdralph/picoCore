@@ -1,7 +1,7 @@
 {
   "packages": [
     {
-      "name": "MiniCore",
+      "name": "picoCore",
       "maintainer": "xiaolaba",
       "websiteURL": "https://github.com/Xioalaba/picoCore",
       "email": "xiao_laba_cn@yahoo.com",
