@@ -1,3 +1,10 @@
+# this is fork of https://github.com/nerdralph/picoCore
+trying to json of github and easy installation.
+testing, 2020-05-19
+
+
+
+
 # picoCore
 Small Arduino/Wiring core for 8-pin tiny AVRs: ATtiny13 and ATtiny25-85 series.  Arduino Blink sketch compiled for the ATtiny85 is 64 bytes and for the ATtiny13 is 54 bytes.
 
