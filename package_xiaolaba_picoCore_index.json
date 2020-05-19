@@ -37,7 +37,6 @@
           ],
           "toolsDependencies": []
         },
-
         {
           "name": "picoCore",
           "architecture": "avr",
@@ -65,10 +64,7 @@
             }
           ],
           "toolsDependencies": []
-        },
-
-
-
+        }
       ],
       "tools": []
     }
