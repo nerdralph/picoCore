@@ -15,8 +15,8 @@
           "architecture": "avr",
           "version": "0.2.0",
           "category": "Contributed",
-          "url": "https://xiaolaba.github.io/picoCore/release/picoCore-0.2b.zip",
-          "archiveFileName": "v0.2b.zip",
+          "url": "https://xiaolaba.github.io/picoCore/release/picoCore-0.2.0.zip",
+          "archiveFileName": "picoCore-0.2.0.zip",
           "checksum": "SHA-256:a37b80ede2629690bfa964af8fcfaa8020c0ce2892e0d70479ee2b9663fad50e",
           "size": "7820",
           "boards": [
@@ -42,10 +42,10 @@
         {
           "name": "picoCore",
           "architecture": "avr",
-          "version": "0.2.0.1",
+          "version": "0.2.1",
           "category": "Contributed",
-          "url": "https://xiaolaba.github.io/picoCore/release/picoCore-0.2.0.zip",
-          "archiveFileName": "v0.2.0.zip",
+          "url": "https://xiaolaba.github.io/picoCore/release/picoCore-0.2.1.zip",
+          "archiveFileName": "picoCore-0.2.1.zip",
           "checksum": "SHA-256:05de9232c4ceac8e942f969fa8e10387e7ac32fbeabfd008493ad810bda8ab86",
           "size": "9728",
           "boards": [
