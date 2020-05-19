@@ -3,10 +3,10 @@
     {
       "name": "picoCore",
       "maintainer": "xiaolaba",
-      "websiteURL": "https://github.com/Xioalaba/picoCore",
-      "email": "",
+      "websiteURL": "https://xiaolaba.github.io/picoCore/",
+      "email": "xiao_laba_cn@yahoo.com",
       "help": {
-        "online": "https://github.com/Xioalaba/picoCore"
+        "online": "https://xiaolaba.github.io/picoCore/"
       },
       "platforms": [
         {
@@ -16,8 +16,8 @@
           "category": "Contributed",
           "url": "https://github.com/xiaolaba/picoCore/archive/v0.2.0.zip",
           "archiveFileName": "v0.2.0.zip",
-          "checksum": "SHA-256:a3c5f9f496004bddb5969a473f155ef845178e92a79dc47392ea6356cfb6ba4b",
-          "size": "86612",
+          "checksum": "SHA-256:05de9232c4ceac8e942f969fa8e10387e7ac32fbeabfd008493ad810bda8ab86",
+          "size": "9728",
           "boards": [
             {
               "name": "ATtiny13/A/V"
@@ -44,8 +44,8 @@
           "category": "Contributed",
           "url": "https://github.com/xiaolaba/picoCore/archive/v0.2b.zip",
           "archiveFileName": "v0.2b.zip",
-          "checksum": "SHA-256:a3c5f9f496004bddb5969a473f155ef845178e92a79dc47392ea6356cfb6ba4b",
-          "size": "86612",
+          "checksum": "SHA-256:a37b80ede2629690bfa964af8fcfaa8020c0ce2892e0d70479ee2b9663fad50e",
+          "size": "7820",
           "boards": [
             {
               "name": "ATtiny13/A/V"
