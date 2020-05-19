@@ -17,8 +17,8 @@
           "category": "Contributed",
           "url": "https://xiaolaba.github.io/picoCore/release/picoCore-0.2.0.zip",
           "archiveFileName": "picoCore-0.2.0.zip",
-          "checksum": "SHA-256:0a39d9fbe01164416746cec9d5ff9bfb3544767f47ca52ac328c3574f909a558",
-          "size": "7844",
+          "checksum": "SHA-256:911ca4b4f6a6b8617c4876bc96df5e79dbc972bf4a87b3edc1ccb2a6717908db",
+          "size": "6344",
           "boards": [
             {
               "name": "ATtiny13/A/V"
@@ -46,8 +46,8 @@
           "category": "Contributed",
           "url": "https://xiaolaba.github.io/picoCore/release/picoCore-0.2.1.zip",
           "archiveFileName": "picoCore-0.2.1.zip",
-          "checksum": "SHA-256:3f27b92da9c986c92ea01dff1029c24c54ad64e95a6c9507db6ad84d2d1fcc40",
-          "size": "9728",
+          "checksum": "SHA-256:488e78f0dd45af07f35400413eebec9aaec977cc5eb2e381a5950f12d7f23335",
+          "size": "7658",
           "boards": [
             {
               "name": "ATtiny13/A/V"
