@@ -17,7 +17,7 @@
           "category": "Contributed",
           "url": "https://xiaolaba.github.io/picoCore/release/picoCore-0.2.0.zip",
           "archiveFileName": "picoCore-0.2.0.zip",
-          "checksum": "SHA-256:a37b80ede2629690bfa964af8fcfaa8020c0ce2892e0d70479ee2b9663fad50e",
+          "checksum": "SHA-256:0a39d9fbe01164416746cec9d5ff9bfb3544767f47ca52ac328c3574f909a558",
           "size": "7820",
           "boards": [
             {
@@ -46,7 +46,7 @@
           "category": "Contributed",
           "url": "https://xiaolaba.github.io/picoCore/release/picoCore-0.2.1.zip",
           "archiveFileName": "picoCore-0.2.1.zip",
-          "checksum": "SHA-256:05de9232c4ceac8e942f969fa8e10387e7ac32fbeabfd008493ad810bda8ab86",
+          "checksum": "SHA-256:3f27b92da9c986c92ea01dff1029c24c54ad64e95a6c9507db6ad84d2d1fcc40",
           "size": "9728",
           "boards": [
             {
