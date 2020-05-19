@@ -13,7 +13,7 @@
         {
           "name": "picoCore",
           "architecture": "avr",
-          "version": "v0.2b",
+          "version": "0.2b",
           "category": "Contributed",
           "url": "https://xiaolaba.github.io/picoCore/release/picoCore-0.2b.zip",
           "archiveFileName": "v0.2b.zip",
@@ -39,10 +39,10 @@
           "toolsDependencies": []
         },
         
-                {
+        {
           "name": "picoCore",
           "architecture": "avr",
-          "version": "v0.2.0",
+          "version": "0.2.0",
           "category": "Contributed",
           "url": "https://xiaolaba.github.io/picoCore/release/picoCore-0.2.0.zip",
           "archiveFileName": "v0.2.0.zip",
