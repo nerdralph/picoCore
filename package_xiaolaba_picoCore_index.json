@@ -1,0 +1,72 @@
+{
+  "packages": [
+    {
+      "name": "picoCore",
+      "maintainer": "xiaolaba",
+      "websiteURL": "https://github.com/Xioalaba/picoCore",
+      "email": "",
+      "help": {
+        "online": "https://github.com/Xioalaba/picoCore"
+      },
+      "platforms": [
+        {
+          "name": "picoCore",
+          "architecture": "avr",
+          "version": "v0.2.0",
+          "category": "Contributed",
+          "url": "https://github.com/xiaolaba/picoCore/archive/v0.2.0.zip",
+          "archiveFileName": "v0.2.0.zip",
+          "checksum": "SHA-256:a3c5f9f496004bddb5969a473f155ef845178e92a79dc47392ea6356cfb6ba4b",
+          "size": "86612",
+          "boards": [
+            {
+              "name": "ATtiny13/A/V"
+            },
+            {
+              "name": "ATtiny25/A/V"
+            },
+            {
+              "name": "ATtiny45/A/V"
+            },
+            {
+              "name": "ATtiny85/A/V"
+            },
+            {
+              "name": "ATtiny13"
+            }
+          ],
+          "toolsDependencies": []
+        },
+        {
+          "name": "picoCore",
+          "architecture": "avr",
+          "version": "v0.2b",
+          "category": "Contributed",
+          "url": "https://github.com/xiaolaba/picoCore/archive/v0.2b.zip",
+          "archiveFileName": "v0.2b.zip",
+          "checksum": "SHA-256:a3c5f9f496004bddb5969a473f155ef845178e92a79dc47392ea6356cfb6ba4b",
+          "size": "86612",
+          "boards": [
+            {
+              "name": "ATtiny13/A/V"
+            },
+            {
+              "name": "ATtiny25/A/V"
+            },
+            {
+              "name": "ATtiny45/A/V"
+            },
+            {
+              "name": "ATtiny85/A/V"
+            },
+            {
+              "name": "ATtiny13"
+            }
+          ],
+          "toolsDependencies": []
+        }
+      ],
+      "tools": []
+    }
+  ]
+}
