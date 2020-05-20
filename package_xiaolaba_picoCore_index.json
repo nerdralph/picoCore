@@ -2,7 +2,7 @@
   "packages": [
     {
       "name": "picoCore",
-      "maintainer": "xiaolaba",
+      "maintainer": "xiaolaba, fork https://github.com/nerdralph/picoCore",
       "websiteURL": "https://xiaolaba.github.io/picoCore/",
       "email": "xiao_laba_cn@yahoo.com",
       "help": {
