@@ -1,6 +1,6 @@
-# this is fork of https://github.com/nerdralph/picoCore
+## this is fork of https://github.com/nerdralph/picoCore
 
-### trying to json of github and easy & auto installation.
+### trying to json of github and easy & auto installation.  
 testing, 2020-05-19, done
 
 open Arduino 1.8.12 IDE,  (later version should works well) 
