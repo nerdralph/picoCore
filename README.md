@@ -11,7 +11,7 @@ https://xiaolaba.github.io/picoCore/package_xiaolaba_picoCore_index.json
 
 Tools / Broad Managers / update and install
 
-  
+-----------------------------------------  
     
 ### manual installation,  
 
