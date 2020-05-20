@@ -17,7 +17,7 @@ Tools / Broad Managers / update and install
 
 clone ![picoCore.zip](picoCore.zip), unzip and move the whole folder to the path as, 
 
-C:\Users\ <your user name > \AppData\Local\Arduino15\packages\  
+C:\Users\ your_user_name \AppData\Local\Arduino15\packages\  
 
 
 
