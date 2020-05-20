@@ -1,9 +1,8 @@
 # this is fork of https://github.com/nerdralph/picoCore
 
-trying to json of github and easy & auto installation.
+### trying to json of github and easy & auto installation.
 testing, 2020-05-19, done
 
-```
 open Arduino 1.8.12 IDE,  (later version should works well) 
 File / Preference / Additional Broad manager URLs,  
 include the json following,  
@@ -12,18 +11,16 @@ https://xiaolaba.github.io/picoCore/package_xiaolaba_picoCore_index.json
 
 Tools / Broad Managers / update and install
 
-```
   
-
-```
-manual installation,  
+    
+### manual installation,  
 
 clone ![picoCore.zip](picoCore.zip), unzip and move the whole folder to the path as, 
 
 C:\Users\ <your user name > \AppData\Local\Arduino15\packages\  
 
 
-```
+
 -----------------------------------------
 
 
