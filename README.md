@@ -7,7 +7,7 @@ open Arduino 1.8.12 IDE,  (later version should works well)
 File / Preference / Additional Broad manager URLs,  
 include the json following,  
 
-https://xiaolaba.github.io/picoCore/package_xiaolaba_picoCore_index.json  
+https://xiaolaba.github.io/json/package_xiaolaba_picoCore_index.json  
 
 Tools / Broad Managers / update and install
 
