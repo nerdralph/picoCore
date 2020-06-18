@@ -8,12 +8,14 @@ picocore.upload.using=avrdude
 picocore.bootloader.unlock_bits=0x3f
 picocore.bootloader.lock_bits=0x3e
 picocore.build.core=picocore
+# board name will be used for macro define
 picocore.build.board=attiny
 # build flags are for compile only, not link
 #picocore.build.extra_flags={build.timing}
 
-#picocore.upload.maximum_data_size=64
+#picocore.upload.maximum_size=1024
 #picocore.build.mcu_compile=attiny13a
+#picocore.build.mcu=attiny13a
 #picocore.build.variant=attiny13
 
 # default clock = 8Mhz
@@ -23,6 +25,7 @@ menu.mcu=MCU
 
 picocore.menu.mcu.t13=ATtiny13
 picocore.menu.mcu.t13.build.mcu=attiny13
+#picocore.menu.mcu.t13.build.variant=attiny13
 picocore.menu.mcu.t13.build.f_cpu=9600000L
 picocore.menu.mcu.t13.upload.maximum_size=1024
 

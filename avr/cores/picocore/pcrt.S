@@ -50,6 +50,7 @@ __init:
     clr r1
 
     .section .init9
+    .global main
 ; main must go in .init9 to save rjmp
 ;    rjmp main
 

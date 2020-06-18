@@ -12,7 +12,8 @@ version=0.1.0
 # AVR compile variables
 # ---------------------
 
-compiler.warning_flags=-w
+#compiler.warning_flags=-w
+compiler.warning_flags=
 compiler.warning_flags.none=-w
 compiler.warning_flags.default=
 compiler.warning_flags.more=-Wall
@@ -38,7 +39,7 @@ compiler.objcopy.cmd=avr-objcopy
 compiler.objcopy.eep.flags=-O ihex -j .eeprom --set-section-flags=.eeprom=alloc,load --no-change-warnings --change-section-lma .eeprom=0
 compiler.elf2hex.flags=-O ihex -R .eeprom
 compiler.elf2hex.cmd=avr-objcopy
-compiler.ldflags=
+#compiler.ldflags=
 compiler.size.cmd=avr-size
 
 # This can be overridden in boards.txt
@@ -47,7 +48,7 @@ build.extra_flags=
 # These can be overridden in platform.local.txt
 compiler.c.extra_flags=
 # force linker to search for __vectors (in pcrt)
-compiler.c.elf.extra_flags=-nostartfiles -Wl,--undefined=__vectors -Wl,--undefined=main
+compiler.c.elf.extra_flags=-nostartfiles -Wl,--undefined=__vectors
 compiler.S.extra_flags=
 compiler.cpp.extra_flags=
 compiler.ar.extra_flags=

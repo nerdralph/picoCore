@@ -3,6 +3,7 @@
  * 20200310 add digital pin functions 
  * 20200301 prototype 
  * 20200319 v0.2beta with analogRead/Write & WDT millis()
+ * 20200416 v0.2.1 with FlashStringHelper & portxxxxRegister functions
  */
 
 #pragma once
@@ -12,6 +13,10 @@
 #include <avr/pgmspace.h>
 #include <util/delay.h>
 #include "constants.h"
+
+#define min(a,b) ((a)<(b)?(a):(b))
+#define max(a,b) ((a)>(b)?(a):(b))
+#define abs(x) __builtin_abs(x)
 
 #ifdef __cplusplus
 class __FlashStringHelper;
