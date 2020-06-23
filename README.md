@@ -5,7 +5,9 @@ I am writing this core from scratch, with code size and efficiency as the main g
 
 
 ## Development Status
-v 0.3.0 includes [debugSerial](https://github.com/nerdralph/debugSerial), for basic serial output supporting the most common [Serial.print()](https://www.arduino.cc/reference/en/language/functions/communication/serial/print) data types.
+v0.3.0 includes [debugSerial](https://github.com/nerdralph/debugSerial), for basic serial output supporting the most common [Serial.print()](https://www.arduino.cc/reference/en/language/functions/communication/serial/print) data types.
+
+Plans for v0.4.0 include serial bootloader support using [picoboot-lib](https://github.com/nerdralph/picoboot-lib), and runtime variable delay().
 
 ## Supported Functions
 * [analogRead()](https://www.arduino.cc/en/Reference/AnalogRead)
