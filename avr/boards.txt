@@ -1,10 +1,12 @@
 # picoCore board file - template taken from MicroCore
 # https://github.com/MCUdude/MicroCore
 
+# creates picocore board menu option
 picocore.name=picoCore
 picocore.bootloader.tool=avrdude
 picocore.upload.tool=avrdude
-picocore.upload.using=avrdude
+picocore.upload.protocol=arduino
+picocore.upload.speed=57600
 picocore.bootloader.unlock_bits=0x3f
 picocore.bootloader.lock_bits=0x3e
 picocore.build.core=picocore
@@ -14,13 +16,13 @@ picocore.build.board=attiny
 #picocore.build.extra_flags={build.timing}
 
 #picocore.upload.maximum_size=1024
-#picocore.build.mcu_compile=attiny13a
 #picocore.build.mcu=attiny13a
 #picocore.build.variant=attiny13
 
 # default clock = 8Mhz
 picocore.build.f_cpu=8000000L
 
+# creates MCU menu when picoCore board is selected
 menu.mcu=MCU
 
 picocore.menu.mcu.t13=ATtiny13
