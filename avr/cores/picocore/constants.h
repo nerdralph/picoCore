@@ -1,11 +1,8 @@
 // global constants
 #include <stdint.h>
 
-static const uint8_t LOW = 0;
-static const uint8_t HIGH = 1;
-//static const uint8_t LED_BUILTIN = 2;
+enum {LOW = 0, HIGH};
 enum {LED_BUILTIN = 2};
-//static const uint8_t NUM_DIGITAL_PINS = 6;
 enum {NUM_DIGITAL_PINS = 6};
 
 typedef enum {MSBFIRST = 0, LSBFIRST} _bitOrder;
