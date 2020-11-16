@@ -15,12 +15,14 @@ picocore.build.board=attiny
 # build flags are for compile only, not link
 #picocore.build.extra_flags={build.timing}
 
-#picocore.upload.maximum_size=1024
 #picocore.build.mcu=attiny13a
 #picocore.build.variant=attiny13
 
 # default clock = 8Mhz
 picocore.build.f_cpu=8000000L
+
+# default flash size = 8kB
+picocore.upload.maximum_size=8192
 
 # creates MCU menu when picoCore board is selected
 menu.mcu=MCU
@@ -41,5 +43,7 @@ picocore.menu.mcu.t45.upload.maximum_size=4096
 
 picocore.menu.mcu.t85=ATtiny85
 picocore.menu.mcu.t85.build.mcu=attiny85
-picocore.menu.mcu.t85.upload.maximum_size=8192
+
+picocore.menu.mcu.t84=ATtiny84
+picocore.menu.mcu.t84.build.mcu=attiny84
 
