@@ -61,20 +61,16 @@ inline void check_valid_digital_pin(uint8_t pin)
     }
 }
 
+/*
+__attribute((always_inline))
 inline void delayMicroseconds(uint16_t us)
 {
     _delay_us(us);
 }
+*/
+#define delayMicroseconds(us) _delay_us(us)
 
-void delay_16ms(uint16_t count);
-
-inline void delay(uint16_t ms)
-{
-    if (ms > 16)
-        delay_16ms(ms/16);
-    else
-        _delay_us(ms * 1000);
-}
+void delay(uint16_t count);
 
 void shiftOut(uint8_t dataPin, uint8_t clockPin, _bitOrder bitOrder, uint8_t value);
 uint8_t shiftIn(uint8_t dataPin, uint8_t clockPin, _bitOrder bitOrder);
