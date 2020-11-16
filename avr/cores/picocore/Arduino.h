@@ -37,13 +37,13 @@ uint32_t millis();
 
 typedef volatile uint8_t* ioregptr;
 
-extern inline ioregptr portOutputRegister(unsigned addr)
+inline ioregptr portOutputRegister(unsigned addr)
     { return (ioregptr) addr; }
 
-extern inline ioregptr portModeRegister(unsigned addr)
+inline ioregptr portModeRegister(unsigned addr)
     { return (ioregptr) (addr - 1); }
 
-extern inline ioregptr portInputRegister(unsigned addr)
+inline ioregptr portInputRegister(unsigned addr)
     { return (ioregptr) (addr - 2); }
 
 void badArg(const char*) __attribute((error("")));
@@ -61,14 +61,14 @@ inline void check_valid_digital_pin(uint8_t pin)
     }
 }
 
-extern inline void delayMicroseconds(uint16_t us)
+inline void delayMicroseconds(uint16_t us)
 {
     _delay_us(us);
 }
 
 void delay_16ms(uint16_t count);
 
-extern inline void delay(uint16_t ms)
+inline void delay(uint16_t ms)
 {
     if (ms > 16)
         delay_16ms(ms/16);
@@ -79,7 +79,7 @@ extern inline void delay(uint16_t ms)
 void shiftOut(uint8_t dataPin, uint8_t clockPin, _bitOrder bitOrder, uint8_t value);
 uint8_t shiftIn(uint8_t dataPin, uint8_t clockPin, _bitOrder bitOrder);
 
-extern inline void pinMode(uint8_t pin, _pin_mode mode)
+inline void pinMode(uint8_t pin, _pin_mode mode)
 { 
     check_valid_digital_pin(pin);
 
@@ -90,7 +90,7 @@ extern inline void pinMode(uint8_t pin, _pin_mode mode)
     }
 }
 
-extern inline void digitalWrite(uint8_t pin, uint8_t val)
+inline void digitalWrite(uint8_t pin, uint8_t val)
 {
     check_valid_digital_pin(pin);
 
@@ -100,7 +100,7 @@ extern inline void digitalWrite(uint8_t pin, uint8_t val)
         PORTB &= ~(1<<pin);
 }
 
-extern inline uint8_t digitalRead(uint8_t pin)
+inline uint8_t digitalRead(uint8_t pin)
 {
     check_valid_digital_pin(pin);
 
@@ -123,15 +123,15 @@ inline void analogWrite(uint8_t pin, uint8_t count)
     // set pin to output mode
     pinMode(pin, OUTPUT);
 
-    uint8_t FastPWM = (1 << WGM00) | (1 << WGM01);
+    uint8_t PhaseCorrrectPWM = (1 << WGM00) | (0 << WGM01);
     if (pin == 0)
     {
-        TCCR0A |= FastPWM | (1 << COM0A1);
+        TCCR0A |= PhaseCorrrectPWM | (1 << COM0A1);
 	    OCR0A = count;
     }
     else
     {
-        TCCR0A |= FastPWM | (1 << COM0B1);
+        TCCR0A |= PhaseCorrrectPWM | (1 << COM0B1);
 	    OCR0B = count;
     }
 }
@@ -144,7 +144,6 @@ inline void analogReference(_analog_ref ref)
 }
 
 // 9 instr / 18B compiled
-// try extern inline instead of always_inline?
 __attribute((always_inline))
 inline int analogRead(_analog_pin pin)
 {
