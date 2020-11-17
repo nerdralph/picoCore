@@ -56,19 +56,25 @@ inline void check_valid_digital_pin(uint8_t pin)
 {
     if (__builtin_constant_p(pin)) {
         if (pin >= NUM_DIGITAL_PINS) badArg("pin out of range");
-    } else {
+    }
+    /*
+    else {
         badArg("pin must be a constant");
     }
+    */
 }
 
-/*
 __attribute((always_inline))
-inline void delayMicroseconds(uint16_t us)
+static inline void delayMicroseconds(uint16_t us)
 {
-    _delay_us(us);
+    us >>= 1;
+    if (us <= 2) return;            // function overhead is ~2us
+    do {
+        // loop overhead is 4 cycles, so 0.5us @8MHz
+        _delay_us(1.5);
+    } while (--us);
 }
-*/
-#define delayMicroseconds(us) _delay_us(us)
+// #define delayMicroseconds(us) _delay_us(us)
 
 void delay(uint16_t count);
 
