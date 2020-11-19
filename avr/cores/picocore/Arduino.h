@@ -16,7 +16,8 @@
 
 #define min(a,b) ((a)<(b)?(a):(b))
 #define max(a,b) ((a)>(b)?(a):(b))
-#define abs(x) __builtin_abs(x)
+// match abs() definition from stdlib.h
+#define abs(__i) __builtin_abs(__i)
 
 #ifdef __cplusplus
 class __FlashStringHelper;
@@ -64,17 +65,18 @@ inline void check_valid_digital_pin(uint8_t pin)
     */
 }
 
+// delays a specified number of microseconds
+// minimum F_CPU = 4M
+// todo: add support for 1-3.9M, dividing us by 4
 __attribute((always_inline))
 static inline void delayMicroseconds(uint16_t us)
 {
-    us >>= 1;
-    if (us <= 2) return;            // function overhead is ~2us
+
+    const float fMHz = (F_CPU/1000000.0);
     do {
-        // loop overhead is 4 cycles, so 0.5us @8MHz
-        _delay_us(1.5);
+        _delay_us(1.0 - (4.0 / fMHz));  // correct for 4c loop overhead
     } while (--us);
 }
-// #define delayMicroseconds(us) _delay_us(us)
 
 void delay(uint16_t count);
 
