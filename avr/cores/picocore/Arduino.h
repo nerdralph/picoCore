@@ -49,9 +49,6 @@ inline ioregptr portInputRegister(unsigned addr)
 
 void badArg(const char*) __attribute((error("")));
 
-#define ASSERT_CONST(pin) \
-    if (!__builtin_constant_p(pin)) badArg("pin must be a constant")
-
 __attribute((always_inline))
 inline void check_valid_digital_pin(uint8_t pin)
 {
