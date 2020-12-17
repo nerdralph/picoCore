@@ -63,16 +63,26 @@ inline void check_valid_digital_pin(uint8_t pin)
 }
 
 // delays a specified number of microseconds
-// minimum F_CPU = 4M
-// todo: add support for 1-3.9M, dividing us by 4
+// works for clock frequencies of 1Mhz and up
 __attribute((always_inline))
 static inline void delayMicroseconds(uint16_t us)
 {
+    // if us is a compile-time constant result is accurate to 1 cycle
+    if (__builtin_constant_p(us)) {
+        _delay_us(us);
+        return;
+    }
 
+    // when us is not known at compile time, delay is accurate to +/- 2us
+    // plus an overhead of 3 CPU cycles
     const float fMHz = (F_CPU/1000000.0);
-    do {
-        _delay_us(1.0 - (4.0 / fMHz));  // correct for 4c loop overhead
-    } while (--us);
+    // subtract two for rounding before dividing by 4
+    us -= 2;
+    delay4us:
+        // delay 4us per loop, less 4 cycles for overhead
+        _delay_us(4.0 - (4.0 / fMHz));
+        asm volatile ("sbiw %[us], 4" : [us]"+d"(us));
+    asm goto( "brpl %l[delay4us]" :::: delay4us);
 }
 
 void delay(uint16_t count);
