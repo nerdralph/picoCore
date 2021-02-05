@@ -13,8 +13,8 @@ Plans for v0.4.0 include serial bootloader support using [picoboot-lib](https://
 * [analogRead()](https://www.arduino.cc/en/Reference/AnalogRead)
 * [analogReference()](https://www.arduino.cc/en/Reference/AnalogReference)
 * [analogWrite()](https://www.arduino.cc/en/Reference/AnalogWrite)
-* [delay()](https://www.arduino.cc/en/Reference/Delay)
-* [delayMicroseconds()](https://www.arduino.cc/en/Reference/DelayMicroseconds)   *wrapper for _delay_us()*
+* [delay()](https://www.arduino.cc/en/Reference/Delay) 
+* [delayMicroseconds()](https://www.arduino.cc/en/Reference/DelayMicroseconds)
 * [digitalRead()](https://www.arduino.cc/en/Reference/DigitalRead)
 * [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite)
 * [millis()](https://www.arduino.cc/en/Reference/Millis)   *Watchdog timer based. Will increase with steps of 16*
