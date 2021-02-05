@@ -14,7 +14,7 @@ Plans for v0.4.0 include serial bootloader support using [picoboot-lib](https://
 * [analogRead()](https://www.arduino.cc/en/Reference/AnalogRead)
 * [analogReference()](https://www.arduino.cc/en/Reference/AnalogReference)
 * [analogWrite()](https://www.arduino.cc/en/Reference/AnalogWrite)
-* [delay()](https://www.arduino.cc/en/Reference/Delay) 
+* [delay()](https://www.arduino.cc/en/Reference/Delay) *Maximum delay is 65535ms* 
 * [delayMicroseconds()](https://www.arduino.cc/en/Reference/DelayMicroseconds)
 * [digitalRead()](https://www.arduino.cc/en/Reference/DigitalRead)
 * [digitalWrite()](https://www.arduino.cc/en/Reference/DigitalWrite)
